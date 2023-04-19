@@ -1,0 +1,237 @@
+/* Font style */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+/* Body style */
+body {
+  font-family: 'Outfit', sans-serif;
+  color: #231942;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header style */
+header {
+  background-color: #231942;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .close-btn:hover {
+    color: #4b5151;
+  }
+/* Button style */
+button {
+  background-color: #231942;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #6BA2D2;
+}
+
+/* Modal style */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal content style */
+.modal-content {
+  background-color: #f2f2f2;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* Table style */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color:#f5f5f5;}
+td {           /* chỉnh thuộc tính ô trong bảng */
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: pre-line;
+}
+
+th {
+  background-color: #231942;
+  color: white;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+  /* Popup container */
+.popup {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+  }
+  
+  /* Popup form */
+  .popup-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #A2D2FF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    animation: popup-form-animation 0.3s forwards;
+  }
+  
+  /* Form animation */
+  @keyframes popup-form-animation {
+    from {
+      transform: translate(-50%, -70%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 50%;
+    margin-top: 20px;
+  }
+  
+  .modal.active {
+    display: block;
+  }
+
+      
+  input {
+    margin-bottom: 10px; /* thêm khoảng cách 10px giữa các input */
+  }
+  
+  label {
+    display: block; /* đưa các label về hàng mới */
+    margin-bottom: 5px; /* thêm khoảng cách 5px giữa các label */
+  }
+
+  input[type="submit"] {
+    background-color: #231942;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #6BA2D2;
+    
+  }
+  
+  input[type="text"],
+  textarea {
+    height: 20px;
+  }
+
+  #search-bar{
+    display: block;
+    margin-top: 20px; /* Tùy chỉnh khoảng cách dưới */
+    margin-bottom: 0px;
+  }
+   
+
+
+  input[type="text"].input#search-bar, textarea { width: 80%;
+    height: 70px;}
+  
+    
+		
+		
