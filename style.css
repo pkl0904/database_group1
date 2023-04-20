@@ -247,6 +247,7 @@ tr:nth-child(even){background-color: #f2f2f2}
     }
     .logo {
       order: 2; /* Đặt logo ở vị trí sau */
+	width: 100%;
     }
     
     .hamburger {
