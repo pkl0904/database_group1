@@ -52,6 +52,34 @@ document.getElementById("close-btn").addEventListener("click", function() {
   document.getElementById("close-btn").addEventListener("click", function() {
     document.getElementById("model-content").style.display = "none";
   });
+    // Tạo danh sách các option trong dropbox Product ID
+    var productIDSelect = document.getElementById("productID");
+    for (var i = 1; i <= 50; i++) {
+      var option = document.createElement("option");
+      option.value = "Product" + i;
+      option.text = "Product " + i;
+      productIDSelect.add(option);
+    }
+function addProductInfo() {
+    var productID = document.getElementById("productID").value;
+    var quantity = document.getElementById("quantity").value;
+    var amount = document.getElementById("amount").value;
+    
+    // Tạo một div mới để chứa thông tin về product
+    var productInfoDiv = document.createElement("div");
+    productInfoDiv.innerHTML = "Product ID: " + productID + "<br>" +
+                               "Quantity: " + quantity + "<br>" +
+                               "Amount: " + amount + "<br>" +
+                               "<hr>";
+    
+    // Thêm div mới vào form lớn Purchase
+    document.getElementById("productInfoContainer").appendChild(productInfoDiv);
+    
+    // Reset các giá trị trong form nhỏ Product ID
+    document.getElementById("productID").value = "";
+    document.getElementById("quantity").value = "";
+    document.getElementById("amount").value = "";
+}
       function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("search-bar");
