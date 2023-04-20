@@ -366,10 +366,10 @@ tr:nth-child(even){background-color: #f2f2f2}
       transition: all 0.2s ease;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
 
 *{
-	font-family: 'Baloo Paaji 2', cursive;
+	font-family: 'Outfit', cursive;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
