@@ -1,10 +1,7 @@
 var productInfo = [];
 
-const buttonAddProduct = document.getElementById("addProductInfoBtn");
-
-buttonAddProduct.addEventListener("click", addProductInfo);
-
 function addProductInfo() {
+  console.log("addProductInfo");
   var productID = document.getElementById("productID").value;
   var quantity = document.getElementById("quantity").value;
   var amount = document.getElementById("amount").value;

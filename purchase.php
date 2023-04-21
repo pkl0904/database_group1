@@ -48,7 +48,7 @@
 						<label for="amount">Amount:</label>
 						<input type="number" step="1" id="amount" name="amount">
 						<br>
-						<input type="button" value="Add Product" onclick="addProductInfo()">
+						<button type="button" onclick="addProductInfo()">Add product</button>
 					</div>
 				</div>
 				<input type="hidden" id="productInfo" name="productInfo">
@@ -107,23 +107,103 @@
 			die("Kết nối thất bại: " . mysqli_connect_error());
 		}
 
+		// Số bản ghi trên một trang
+		$limit = 10;
+
+		// Tổng số bản ghi
+		$sql_count = "SELECT COUNT(*) as count FROM purchase";
+		$result_count = mysqli_query($conn, $sql_count);
+		$row_count = mysqli_fetch_assoc($result_count);
+		$total_records = $row_count['count'];
+
+		// Tổng số trang
+		$total_pages = ceil($total_records / $limit);
+
+		// Xác định trang hiện tại
+		$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+		// Giới hạn số trang hiển thị trước và sau trang hiện tại
+		$page_range = 2;
+
+		// Tạo link đến trang đầu tiên
+		$first_link = '';
+		if ($current_page > ($page_range + 1)) {
+			$first_link = '<a href="?page=1">1</a> <span>...</span> ';
+		}
+
+		// Tạo link đến trang cuối cùng
+		$last_link = '';
+		if ($current_page < ($total_pages - $page_range)) {
+			$last_link = ' <span>...</span> <a href="?page=' . $total_pages . '">' . $total_pages . '</a>';
+		}
+
+		// Hiển thị phân trang
+		$pagination = '';
+		if ($total_pages > 1) {
+			$pagination .= '<div class="pagination">';
+
+			if ($current_page > 1) {
+				$pagination .= '<a href="?page=' . ($current_page - 1) . '">Prev</a>';
+			}
+
+			$pagination .= $first_link;
+
+			for ($i = ($current_page - $page_range); $i <= ($current_page + $page_range); $i++) {
+				if (($i > 0) && ($i <= $total_pages)) {
+					if ($i == $current_page) {
+						$pagination .= '<a class="active">' . $i . '</a> ';
+					} else {
+						$pagination .= '<a href="?page=' . $i . '">' . $i . '</a> ';
+					}
+				}
+			}
+
+			$pagination .= $last_link;
+
+			if ($current_page < $total_pages) {
+				$pagination .= '<a href="?page=' . ($current_page + 1) . '">Next</a>';
+			}
+
+			$pagination .= '</div>';
+		}
+
+		// Vị trí bản ghi đầu tiên của trang hiện tại
+		$start = ($current_page - 1) * $limit;
+
+
 		// Lấy dữ liệu từ database
 		$sql = "SELECT *
-	FROM purchase
-	INNER JOIN purchase_product
-	ON purchase.purchase_id = purchase_product.purchase_id;
-	";
+        FROM purchase
+        INNER JOIN purchase_product
+        ON purchase.purchase_id = purchase_product.purchase_id
+        LIMIT $start, $limit";
 		$result = mysqli_query($conn, $sql);
 
-		// Kiểm tra số bản ghi được trả về
+		// Hiển thị bảng dữ liệu
 		if (mysqli_num_rows($result) > 0) {
-			// Hiển thị bảng dữ liệu
 			echo "<table>";
 			echo "<tr><th>Purchase ID</th><th>Customer ID</th><th>Purchase Date</th><th>Product ID</th><th>Quantity</th><th>Amount</th><th>Total</th></tr>";
 			while ($row = mysqli_fetch_assoc($result)) {
 				echo "<tr><td>" . $row["purchase_id"] . "</td><td>" . $row["customer_id"] . "</td><td>" . $row["purchase_date"] . "</td><td>" . $row["product_id"] . "</td><td>" . $row["quantity"] . "</td><td>" . $row["amount"] . "</td><td>" . $row["total_amount"] . "</td> </tr>";
 			}
 			echo "</table>";
+
+			// Hiển thị phân trang
+			echo "<div class='pagination'>";
+			if ($current_page > 1) {
+				echo "<a href='?page=" . ($current_page - 1) . "'>Prev</a>";
+			}
+			for ($i = 1; $i <= $total_pages; $i++) {
+				if ($i == $current_page) {
+					echo "<a class='active'>$i</a>";
+				} else {
+					echo "<a href='?page=$i'>$i</a>";
+				}
+			}
+			if ($current_page < $total_pages) {
+				echo "<a href='?page=" . ($current_page + 1) . "'>Next</a>";
+			}
+			echo "</div>";
 		} else {
 			echo "Không có bản ghi nào được tìm thấy.";
 		}
@@ -131,17 +211,19 @@
 		// Đóng kết nối
 		mysqli_close($conn);
 		?>
+
+
 		<div class="sidebar">
 			<div class="sidebar_inner">
 				<ul>
 					<li>
-						<a href="index.html">
+						<a href="customer.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">1. Customer</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="product.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">2. Product</span>
 						</a>
@@ -154,43 +236,43 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="sales_reprentative.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">4. Sale Respresentative</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="customer_feedback.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">5. Customer Feedback</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="customer_interaction.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">6. Customer Interaction</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="marketing_channel.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">7. Marketing Channel</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="marketing_campaign.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">8. Marketting Campaign</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="marketing_budget.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">9. Marketing Budget</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="revenue.php">
 							<span class="icon"><i class="fas fa-chess"></i></span>
 							<span class="text">10. Revenue</span>
 						</a>

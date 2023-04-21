@@ -383,57 +383,39 @@ tr:nth-child(even){background-color: #f2f2f2}
 	list-style: none;
 	text-decoration: none;
 }
-  
-    
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-
-
-main {
-  position: relative;
-  padding: 1rem 1rem 3rem;
-  min-height: calc(100vh - 4rem);
-}
-
-h1 {
-  margin-top: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-.pagination-container {
-  width: calc(100% - 2rem);
+btn-container {
+  margin-top: 10px;
   display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  padding: 1rem 0;
   justify-content: center;
 }
 
-.pagination-number,
-.pagination-button{
-  font-size: 1.1rem;
-  background-color: transparent;
-  border: none;
-  margin: 0.25rem 0.25rem;
+.btn-container button {
+  margin: 0 10px;
+  padding: 10px;
   cursor: pointer;
-  height: 2.5rem;
-  width: 2.5rem;
-  border-radius: .2rem;
-  color: #0085b6;
-}
-
-.pagination-number:hover,
-.pagination-button:not(.disabled):hover {
-  background: #fff;
-}
-
-.pagination-number.active {
+  font-size: 16px;
+  background-color: #4CAF50;
   color: #fff;
-  background: #0085b6;
+  border: none;
+  border-radius: 4px;
 }
+.pagination a {
+  padding: 10px;
+  margin: 0 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  /*Thêm các thuộc tính CSS khác ở đây để tạo kiểu cho phần tử*/
+}
+
 		
 		
