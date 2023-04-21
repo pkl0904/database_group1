@@ -26,8 +26,9 @@
     if (mysqli_num_rows($result) > 0) {
         // Hiển thị thông tin khách hàng
         echo "<table>";
+        echo "<tr><th>ID Khách hàng</th><th>Họ</th><th>Tên</th><th>Ngày sinh</th><th>Giới tính</th><th>Email</th><th>Số điện thoại</th><th>Địa chỉ</th><th>Sở thích</th><th> Nhân viên bán hàng </th><th>Trạng thái gắn bó </th> </tr>";
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row["customer_id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["date_of_birth"] . "</td><td>" . $row["sex"]  . "</td><td>" . $row["email"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["address"] . "</td><td>" . $row["sales_representative_id"] . "</td><td>" . $row["preferences"] . "</td><td>" . $row["purchase_history"] . "</td><td>" . $row["loyalty_program_status"] . "</td></tr>";
+			echo "<tr><td>" . $row["customer_id"] . "</td><td>" . $row["last_name"] . "</td><td>" . $row["first_name"] . "</td><td>" . $row["sex"]  . "</td><td>" . $row["date_of_birth"] . "</td><td>" . $row["email"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["address"] . "</td><td>" . $row["preferences"] . "</td><td>" . $row["sales_representative_id"] . "</td><td>" . $row["loyalty_program_status"] . "</td> </tr>";
         }
         echo "</table>";
     } else {
