@@ -10,8 +10,6 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/png" href="./image/icon.png" /> <!-- Favicon --->
 	<script src="add_purchase.js"></script> <!-- Đường dẫn đến file JavaScript -->
-
-
 </head>
 
 <body>
@@ -182,9 +180,9 @@
 		// Hiển thị bảng dữ liệu
 		if (mysqli_num_rows($result) > 0) {
 			echo "<table>";
-			echo "<tr><th>Purchase ID</th><th>Customer ID</th><th>Purchase Date</th><th>Product ID</th><th>Quantity</th><th>Amount</th><th>Total</th></tr>";
+			echo "<tr><th>Purchase ID</th><th>Customer ID</th><th>Purchase Date</th><th>Product ID</th><th>Quantity</th><th>Amount</th><th>Total</th><th></th><th></th></tr>";
 			while ($row = mysqli_fetch_assoc($result)) {
-				echo "<tr><td>" . $row["purchase_id"] . "</td><td>" . $row["customer_id"] . "</td><td>" . $row["purchase_date"] . "</td><td>" . $row["product_id"] . "</td><td>" . $row["quantity"] . "</td><td>" . $row["amount"] . "</td><td>" . $row["total_amount"] . "</td> </tr>";
+				echo "<tr><td>" . $row["purchase_id"] . "</td><td>" . $row["customer_id"] . "</td><td>" . $row["purchase_date"] . "</td><td>" . $row["product_id"] . "</td><td>" . $row["quantity"] . "</td><td>" . $row["amount"] . "</td><td>" . $row["total_amount"] . "</td><td><a href='editpurchase.php?id=" . $row["purchase_id"] . "'>Edit</a></td><td><a href='delete_purchase.php?id=" . $row["purchase_id"] . "'>Delete</a></td></tr>";
 			}
 			echo "</table>";
 
