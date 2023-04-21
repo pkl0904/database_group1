@@ -68,11 +68,10 @@
 	</div>
 	<input type="text" id="search-bar" onkeyup="myFunction()"  placeholder="Search...">
 	<table id="table-data">
-		<thead>
+		<thead id="haichieu">
 			<tr>
 				<th>Customer ID</th>
-				<th>Last Name</th>
-				<th>First Name</th>
+				<th>Name</th>
 				<th>Date of Birth</th>
 				<th>Sex</th>
 				<th>Email</th>
@@ -83,8 +82,12 @@
 				<th>Purchase History</th>
 				<th>Loyalty Program Status</th>
 			</tr>
+        
 		</thead>
-		<tbody id="user-data"> 
+	</table>
+		  <ul id="paginated-list" data-current-page="1" aria-live="polite">
+      <tbody id="user-data"> 
+	  <table>
 			<tr> 
 				<td>7</td>
 				<td>anh bảy chọ</td>
@@ -95,19 +98,179 @@
 				<td>Hà Nội</td>
 				<td> vấp cỏ + hôi cúp</td>
 			</tr>   
-			<tr> 
-				<td>6</td>
-				<td>anh sáu chọ</td>
+			
+        <tr> 
+        <td>1</td>
+        <td>Nguyễn Văn A</td>
+        <td>01/01/1990</td>
+        <td>Male</td>
+        <td>nguyenvana@gmail.com</td>
+        <td>0123456789</td>
+        <td>Hồ Chí Minh</td>
+        <td>Quận 1</td>
+    </tr>    
+      <tr>
+    <td>1</td>
+    <td>Nguyễn Thị Mai</td>
+    <td>02/03/1995</td>
+    <td>Female</td>
+    <td>nguyenthimai@gmail.com</td>
+    <td>0987654321</td>
+    <td>Hà Nội</td>
+    <td>Cầu Giấy</td>
+</tr>
+
+   <tr>
+    <td>3</td>
+    <td>Lê Thị Anh</td>
+    <td>08/09/1990</td>
+    <td>Female</td>
+    <td>lethianh@gmail.com</td>
+    <td>0912345678</td>
+    <td>TP.HCM</td>
+    <td>Quận 3</td>
+</tr>
+
+<tr>
+    <td>4</td>
+    <td>Phạm Văn Tú</td>
+    <td>12/12/1997</td>
+    <td>Male</td>
+    <td>phamvantu@gmail.com</td>
+    <td>0123456789</td>
+    <td>Hải Phòng</td>
+    <td>Lê Chân</td>
+</tr>
+
+<tr>
+    <td>5</td>
+    <td>Đỗ Thị Hằng</td>
+    <td>17/05/1994</td>
+    <td>Female</td>
+    <td>dothihang@gmail.com</td>
+    <td>0987654321</td>
+    <td>Nam Định</td>
+    <td>Trần Đăng Ninh</td>
+</tr>
+
+<tr>
+    <td>6</td>
+    <td>Nguyễn Đình Thiên</td>
+    <td>20/04/1991</td>
+    <td>Male</td>
+    <td>nguyendinhthien@gmail.com</td>
+    <td>0912345678</td>
+    <td>Hà Nội</td>
+    <td>Tây Hồ</td>
+</tr>
+
+<tr>
+    <td>7</td>
+    <td>Vũ Thị Minh</td>
+    <td>03/08/1998</td>
+    <td>Female</td>
+    <td>vuthiminh@gmail.com</td>
+    <td>0901234567</td>
+    <td>TP.HCM</td>
+        </tr>
+        <tr> 
+				<td>7</td>
+				<td>anh sáu chọ</td>
 				<td>05/02/1985</td>
 				<td>Female</td>
 				<td>siuuuu@gmail.com</td>
 				<td>0987654321</td>
 				<td>Hà Nội</td>
-				<td> vô địch WC</td>
-			</tr> 
+				<td> vấp cỏ + hôi cúp</td>
+			</tr>   
 			
-		</tbody>
-	</table>
+        <tr> 
+        <td>1</td>
+        <td>Nguyễn Văn A</td>
+        <td>01/01/1990</td>
+        <td>Male</td>
+        <td>nguyenvana@gmail.com</td>
+        <td>0123456789</td>
+        <td>Hồ Chí Minh</td>
+        <td>Quận 1</td>
+    </tr>    
+      <tr>
+    <td>1</td>
+    <td>Nguyễn Thị Mai</td>
+    <td>02/03/1995</td>
+    <td>Female</td>
+    <td>nguyenthimai@gmail.com</td>
+    <td>0987654321</td>
+    <td>Hà Nội</td>
+    <td>Cầu Giấy</td>
+</tr>
+
+   <tr>
+    <td>3</td>
+    <td>Lê Thị Anh</td>
+    <td>08/09/1990</td>
+    <td>Female</td>
+    <td>lethianh@gmail.com</td>
+    <td>0912345678</td>
+    <td>TP.HCM</td>
+    <td>Quận 3</td>
+</tr>
+
+<tr>
+    <td>4</td>
+    <td>Phạm Văn Tú</td>
+    <td>12/12/1997</td>
+    <td>Male</td>
+    <td>phamvantu@gmail.com</td>
+    <td>0123456789</td>
+    <td>Hải Phòng</td>
+    <td>Lê Chân</td>
+</tr>
+
+<tr>
+    <td>5</td>
+    <td>Đỗ Thị Hằng</td>
+    <td>17/05/1994</td>
+    <td>Female</td>
+    <td>dothihang@gmail.com</td>
+    <td>0987654321</td>
+    <td>Nam Định</td>
+    <td>Trần Đăng Ninh</td>
+</tr>
+
+<tr>
+    <td>6</td>
+    <td>Nguyễn Đình Thiên</td>
+    <td>20/04/1991</td>
+    <td>Male</td>
+    <td>nguyendinhthien@gmail.com</td>
+    <td>0912345678</td>
+    <td>Hà Nội</td>
+    <td>Tây Hồ</td>
+</tr>
+      
+    </table>
+	</tbody>
+  </ul>
+
+  <nav class="pagination-container">
+    <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+      &lt;
+    </button>
+
+    <div id="pagination-numbers">
+
+    </div>
+
+    <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+      &gt;
+    </button>
+  </nav>
+      
+          <div id="container" style="padding: 24px" />
+          <script>const mountNode = document.getElementById('container');</script>
+        
+      </main>
 	<script src="app.js"></script>
 	<div class="wrapper hover_collapse">
 		<div class="top_navbar">
